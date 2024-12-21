@@ -12,8 +12,12 @@ import java.util.List;
 @RequestMapping("question")
 public class QuestionController {
 
-    @Autowired
     QuestionService questionService;
+
+    @Autowired
+    public QuestionController(QuestionService questionService){
+        this.questionService=questionService;
+    }
     @GetMapping("allQuestions")
     public ResponseEntity<List<Question>> getAllQuestions(){
         return questionService.getAllQuestion();
