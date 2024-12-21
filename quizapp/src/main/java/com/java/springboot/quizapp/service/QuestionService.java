@@ -13,8 +13,12 @@ import java.util.List;
 @Service
 public class QuestionService {
 
-    @Autowired
     QuestionDAO questionDAO;
+
+    @Autowired
+    public QuestionService(QuestionDAO questionDAO){
+        this.questionDAO=questionDAO;
+    }
 
     public ResponseEntity<List<Question>> getAllQuestion(){
         try{

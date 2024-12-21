@@ -18,11 +18,16 @@ import java.util.Optional;
 @Service
 public class QuizService {
 
-    @Autowired
     QuizDAO quizDAO;
 
-    @Autowired
     QuestionDAO questionDAO;
+
+    @Autowired
+    public QuizService(QuizDAO quizDAO, QuestionDAO questionDAO){
+        this.quizDAO=quizDAO;
+        this.questionDAO=questionDAO;
+    }
+
     public ResponseEntity<String> createQuiz(String category, int noOfQues, String title) {
 
         try{
